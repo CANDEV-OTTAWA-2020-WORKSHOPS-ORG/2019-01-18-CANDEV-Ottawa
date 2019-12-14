@@ -23,7 +23,7 @@ Change directory to the folder of this pipeline in the local cloned repository:
 cd <LOCAL CLONED REPOSITORY>
 ```
 
-Execute the following batch file (in order to run the full pipeline):
+Execute the following shell script (in order to run the full pipeline):
 
 ```
 .\runall.sh
