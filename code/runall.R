@@ -29,45 +29,43 @@ for ( code.file in code.files ) {
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 installRequiredPkgs();
 
-#require(dplyr);
-#require(tidyr);
-#require(text2vec);
+require(dplyr);
+require(tidyr);
+require(text2vec);
 
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-#set.seed(1234567);
-#
-#RData.raw            <- "raw.RData";
-#RData.textStatistics <- "textStatistics.RData";
-#RData.LDA            <- "LDA.RData";
-#
-#### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-#DF.raw <- getTabularData(
-#	raw_data_folder = file.path(data.directory,"arXiv"),
-#	file_prefix     = "query-arXiv",
-#	output_file     = RData.raw
-#	);
-#
-#cat("\n### str(DF.raw):\n");
-#print(     str(DF.raw)    );
-#
-#my.text.statistics <- getTextStatistics(
-#	DF.input             = DF.raw,
-#	col.id               = "id",
-#	col.text             = "summary",
-#	file_text_statistics = RData.textStatistics
-#	);
-#
-#cat("\n### str(my.text.statistics):\n");
-#print(     str(my.text.statistics)    );
-#
-#### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#results.LDA <- doLDA(
-#    input_matrix = my.text.statistics[["document_term_matrix"]],
-#    file_output  = RData.LDA,
-#    n_topics     =  10,
-#    n_top_words  =  30,
-#    n_iter       = 100
-#    );
+set.seed(1234567);
+
+RData.raw            <- "raw.RData";
+RData.textStatistics <- "textStatistics.RData";
+RData.LDA            <- "LDA.RData";
+
+### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
+DF.raw <- getTabularData(
+	raw_data_folder = file.path(data.directory,"arXiv"),
+	file_prefix     = "query-arXiv",
+	output_file     = RData.raw
+	);
+
+print( str(DF.raw) );
+
+my.text.statistics <- getTextStatistics(
+	DF.input             = DF.raw,
+	col.id               = "id",
+	col.text             = "summary",
+	file_text_statistics = RData.textStatistics
+	);
+
+print( str(my.text.statistics) );
+
+### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+results.LDA <- doLDA(
+    input_matrix = my.text.statistics[["document_term_matrix"]],
+    file_output  = RData.LDA,
+    n_topics     =  10,
+    n_top_words  =  30,
+    n_iter       = 100
+    );
 
 cat("\n##################################################\n");
 print( warnings() );

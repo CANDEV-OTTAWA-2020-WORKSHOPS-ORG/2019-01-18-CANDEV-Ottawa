@@ -28,16 +28,15 @@ doLDA <- function(
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     if (file.exists(file_output)) {
 
-        cat(paste0("\n### ",file_output," already exists; loading this file ...\n"));
+        cat(paste0("\n# ",file_output," already exists; loading this file ...\n"));
 
-        load(file = file_output);
+        readRDS(file = file_output);
 
-        cat(paste0("\n### Finished loading trained Latent Dirichlet Allocation model.\n"));
+        cat(paste0("\n# Finished loading trained Latent Dirichlet Allocation model.\n"));
 
-        }
-    else {
+    } else {
 
-        cat(paste0("\n### ",file_output," not found; start fitting Latent Dirichlet Allocation model ...\n"));
+        cat(paste0("\n# ",file_output," not found; start fitting Latent Dirichlet Allocation model ...\n"));
 
         my.LDA <- LatentDirichletAllocation$new(
             n_topics         = n_topics,
@@ -53,14 +52,14 @@ doLDA <- function(
             progressbar         = interactive()
             );
 
-        save(file = file_output, my.LDA);
+        saveRDS(object = my.LDA, file = file_output);
 
-        cat(paste0("\n### Latent Dirichlet Allocation training complete; trained model saved to file.\n"));
+        cat(paste0("\n# Latent Dirichlet Allocation training complete; trained model saved to file.\n"));
 
         }
 
-    cat("\n### str(my.LDA):\n");
-    print(     str(my.LDA)    );
+    cat("\n# str(my.LDA):\n");
+    print(   str(my.LDA)    );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 	DF.temp <- my.LDA$get_top_words(n = n_top_words, lambda = lambda_top_words);
