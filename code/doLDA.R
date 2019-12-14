@@ -65,9 +65,9 @@ doLDA <- function(
     DF.temp <- my.LDA$get_top_words(n = n_top_words, lambda = lambda_top_words);
     colnames(DF.temp) <- paste0("Topic",seq(1,ncol(DF.temp)));
     write.csv(
-	    file = "lda-top-words.csv",
-	    x    = DF.temp
-	    );
+        file = "lda-top-words.csv",
+        x    = DF.temp
+        );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     DF.temp <- data.frame(t(my.LDA$topic_word_distribution));
@@ -76,19 +76,19 @@ doLDA <- function(
     DF.temp[,"word"] <- rownames(DF.temp);
     DF.temp <- DF.temp[,c("word",setdiff(colnames(DF.temp),"word"))];
 
-	write.csv(
-		file      = "lda-topic-word-distributions.csv",
-		x         = DF.temp,
-		row.names = FALSE
-		);
+    write.csv(
+        file      = "lda-topic-word-distributions.csv",
+        x         = DF.temp,
+        row.names = FALSE
+        );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-	DF.temp <- my.LDA$transform(
-            x                   = input_matrix,
-            n_iter              = n_iter,
-            convergence_tol     = -0.9999, # -1
-            n_check_convergence = 1,       #  default value of 0 causes an error
-            progressbar         = FALSE
+    DF.temp <- my.LDA$transform(
+        x                   = input_matrix,
+        n_iter              = n_iter,
+        convergence_tol     = -0.9999, # -1
+        n_check_convergence = 1,       #  default value of 0 causes an error
+        progressbar         = FALSE
 		);
 
 	DF.temp <- as.data.frame(DF.temp);
@@ -108,35 +108,35 @@ doLDA <- function(
     DF.temp[,"document"] <- rownames(input_matrix);
     DF.temp <- DF.temp[,c("document","entropy","two_entropy",setdiff(colnames(DF.temp),c("document","entropy","two_entropy")))];
 
-	write.csv(
-		file      = "lda-document-topic-distributions.csv",
-		x         = DF.temp,
-		row.names = FALSE
-		);
+    write.csv(
+	    file      = "lda-document-topic-distributions.csv",
+	    x         = DF.temp,
+	    row.names = FALSE
+	    );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     results.cor <- cor(
     	x = as.matrix(DF.temp[,setdiff(colnames(DF.temp),c("document","entropy","two_entropy"))])
     	);
 
-	write.csv(
-		file = "lda-document-topic-distributions-cor.csv",
-		x    = results.cor
-		);
+    write.csv(
+	    file = "lda-document-topic-distributions-cor.csv",
+	    x    = results.cor
+	    );
 
 	if (!is.null(heatmap_palette)) {
-		png(filename = "lda-document-topic-distributions-cor.png", height = 12, width = 12, units = "in", res = 300);
-		heatmap.2(
-			x          = as.matrix(results.cor),
-			dendrogram = "both",
-			trace      = "none",
-			labRow     = NULL,
-			key.xlab   = NULL,
-			key.ylab   = NULL,
-			col        = heatmap_palette
-			);
-		dev.off();
-		}
+	    png(filename = "lda-document-topic-distributions-cor.png", height = 12, width = 12, units = "in", res = 300);
+	    heatmap.2(
+	        x          = as.matrix(results.cor),
+	        dendrogram = "both",
+	        trace      = "none",
+	        labRow     = NULL,
+	        key.xlab   = NULL,
+	        key.ylab   = NULL,
+	        col        = heatmap_palette
+	        );
+	    dev.off();
+	    }
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     FILE.ggplot <- "lda-document-entropy.png";
