@@ -14,6 +14,7 @@ start.proc.time <- proc.time();
 setwd( output.directory );
 
 cat("\n##################################################\n");
+# source supporting R code
 code.files <- c(
     "doLDA.R",
     "getTabularData.R",
@@ -27,6 +28,7 @@ for ( code.file in code.files ) {
     }
 
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
+# install required but not-yet-installed R packages
 installRequiredPkgs();
 
 require(dplyr);
@@ -40,6 +42,7 @@ RData.raw            <- "raw.RData";
 RData.textStatistics <- "textStatistics.RData";
 RData.LDA            <- "LDA.RData";
 
+# read and convert data to tabular format
 DF.raw <- getTabularData(
 	raw_data_folder = file.path(data.directory,"arXiv"),
 	file_prefix     = "query-arXiv",
@@ -48,6 +51,7 @@ DF.raw <- getTabularData(
 
 print( str(DF.raw) );
 
+# generate statistics
 my.text.statistics <- getTextStatistics(
 	DF.input             = DF.raw,
 	col.id               = "id",
@@ -57,6 +61,7 @@ my.text.statistics <- getTextStatistics(
 
 print( str(my.text.statistics) );
 
+# perform Latent Dirichlet Allocation
 results.LDA <- doLDA(
     input_matrix = my.text.statistics[["document_term_matrix"]],
     file_output  = RData.LDA,

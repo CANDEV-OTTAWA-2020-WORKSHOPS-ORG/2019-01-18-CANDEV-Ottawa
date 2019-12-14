@@ -24,8 +24,7 @@ getTextStatistics <- function(
 
         cat(paste0("\n### Finished loading text statistics.\n"));
 
-        }
-    else {
+    } else {
 
         tokens <- DF.input[,col.text] %>%
             tolower() %>%
