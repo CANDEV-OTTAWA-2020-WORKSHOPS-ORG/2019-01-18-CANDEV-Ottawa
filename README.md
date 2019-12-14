@@ -14,7 +14,7 @@ How to execute the pipeline
 Clone this project by running the following at the command line:
 
 ```
-git clone https://gccode.ssc-spc.gc.ca/STC-DSCoE/arXiv-topic-modelling-public.git
+git clone https://github.com/dsd-statcan/2019-01-18-CANDEV-Ottawa.git
 ```
 
 Change directory to the folder of this pipeline in the local cloned repository:
