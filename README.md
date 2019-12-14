@@ -140,15 +140,15 @@ Auxiliary output files
 
 * __stdout.R.runall__
 
-    Standard output log files of __runall.bat__.
+    Standard output log files of __runall.sh__.
 
 * __stderr.R.runall__
 
-    Standard error log files of __runall.bat__.
+    Standard error log files of __runall.sh__.
 
 Structure of the pipeline
 -------------------------
-1)  The batch program `runall.bat` does the following:
+1)  The batch program `runall.sh` does the following:
 
 * Add folder containing R executables to the environment variable PATH.
 * Set the input folder.
