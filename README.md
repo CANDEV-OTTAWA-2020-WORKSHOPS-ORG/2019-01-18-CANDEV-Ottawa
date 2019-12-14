@@ -1,6 +1,6 @@
 
-008-LDA
-=======
+Latent Dirichlet Allocation
+===========================
 
 This is a pipeline that applies a certain topic modelling technique to a toy
 (textual) data set.
