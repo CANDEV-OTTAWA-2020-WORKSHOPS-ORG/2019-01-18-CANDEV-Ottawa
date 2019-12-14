@@ -50,7 +50,7 @@ the putative topics.
 Input files
 -----------
 The input files are located in
-`<LOCAL CLONED REPOSITORY>/data/input/arXiv/`.
+`<LOCAL CLONED REPOSITORY>/data/arXiv/`.
 Below are descriptions of the input text files for this pipeline.
 
 * __query-arXiv-cat-cs-LG-1000.txt__
