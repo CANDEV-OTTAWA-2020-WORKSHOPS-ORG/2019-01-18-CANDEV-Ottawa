@@ -124,19 +124,19 @@ doLDA <- function(
 	    x    = results.cor
 	    );
 
-	if (!is.null(heatmap_palette)) {
-	    png(filename = "lda-document-topic-distributions-cor.png", height = 12, width = 12, units = "in", res = 300);
-	    heatmap.2(
-	        x          = as.matrix(results.cor),
-	        dendrogram = "both",
-	        trace      = "none",
-	        labRow     = NULL,
-	        key.xlab   = NULL,
-	        key.ylab   = NULL,
-	        col        = heatmap_palette
-	        );
-	    dev.off();
-	    }
+    if (!is.null(heatmap_palette)) {
+        png(filename = "lda-document-topic-distributions-cor.png", height = 12, width = 12, units = "in", res = 300);
+        heatmap.2(
+            x          = as.matrix(results.cor),
+            dendrogram = "both",
+            trace      = "none",
+            labRow     = NULL,
+            key.xlab   = NULL,
+            key.ylab   = NULL,
+            col        = heatmap_palette
+            );
+        dev.off();
+        }
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     FILE.ggplot <- "lda-document-entropy.png";
