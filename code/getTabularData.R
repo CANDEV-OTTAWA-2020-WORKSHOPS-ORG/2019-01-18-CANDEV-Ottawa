@@ -18,12 +18,11 @@ getTabularData <- function(
 
         cat(paste0("\n### ",output_file," already exists; loading this file ...\n"));
 
-        load(file = output_file);
+        DF.raw <- readRDS(file = output_file);
 
         cat(paste0("\n### Finished loading raw data.\n"));
 
-        }
-    else {
+    } else {
 
         templist <- list();
         for (tempXML in list.files(path=raw_data_folder,pattern=file_prefix)) {
@@ -43,7 +42,7 @@ getTabularData <- function(
             }
 
         if (!is.null(output_file)) {
-            save(file = output_file, DF.raw);
+            saveRDS(object = DF.raw, file = output_file);
             }
 
         rm(templist);

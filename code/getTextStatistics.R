@@ -20,7 +20,7 @@ getTextStatistics <- function(
 
         cat(paste0("\n### ",file_text_statistics," already exists; loading this file ...\n"));
 
-        load(file = file_text_statistics);
+        text.statistics <- readRDS(file = file_text_statistics);
 
         cat(paste0("\n### Finished loading text statistics.\n"));
 
@@ -80,7 +80,7 @@ getTextStatistics <- function(
             );
 
         if (!is.null(file_text_statistics)) {
-            save(file = file_text_statistics, text.statistics);
+            saveRDS(object = text.statistics, file = file_text_statistics);
             }
 
         rm(tokens_iterator,tokens_vocabulary,document_term_matrix,tfidf_matrix,term_cooccurence_matrix);

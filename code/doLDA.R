@@ -30,7 +30,7 @@ doLDA <- function(
 
         cat(paste0("\n# ",file_output," already exists; loading this file ...\n"));
 
-        readRDS(file = file_output);
+        my.LDA <- readRDS(file = file_output);
 
         cat(paste0("\n# Finished loading trained Latent Dirichlet Allocation model.\n"));
 
