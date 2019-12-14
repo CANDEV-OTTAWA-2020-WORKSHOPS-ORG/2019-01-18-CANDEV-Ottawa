@@ -17,8 +17,8 @@ cat("\n##################################################\n");
 # source supporting R code
 code.files <- c(
     "doLDA.R",
+    "getFeatures.R",
     "getTabularData.R",
-    "getTextStatistics.R",
     "installRequiredPkgs.R",
     "xml2csv.R"
     );
@@ -38,9 +38,9 @@ require(text2vec);
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 set.seed(1234567);
 
-RData.raw            <- "raw.RData";
-RData.textStatistics <- "textStatistics.RData";
-RData.LDA            <- "LDA.RData";
+RData.raw      <- "raw.RData";
+RData.features <- "features.RData";
+RData.LDA      <- "LDA.RData";
 
 # read and convert data to tabular format
 DF.raw <- getTabularData(
@@ -51,19 +51,19 @@ DF.raw <- getTabularData(
 
 print( str(DF.raw) );
 
-# generate statistics
-my.text.statistics <- getTextStatistics(
-	DF.input             = DF.raw,
-	col.id               = "id",
-	col.text             = "summary",
-	file_text_statistics = RData.textStatistics
+# generate features
+list.features <- getFeatures(
+    input_matrix  = DF.raw,
+	col_id        = "id",
+	col_text      = "summary",
+	file_features = RData.features
 	);
 
-print( str(my.text.statistics) );
+print( str(list.features) );
 
 # perform Latent Dirichlet Allocation
 results.LDA <- doLDA(
-    input_matrix = my.text.statistics[["document_term_matrix"]],
+    input_matrix = list.features[["document_term_matrix"]],
     file_output  = RData.LDA,
     n_topics     =  10,
     n_top_words  =  30,
@@ -86,4 +86,3 @@ cat("\n##### Sys.time(): ",format(Sys.time(),"%Y-%m-%d %T %Z"),"\n");
 stop.proc.time <- proc.time();
 cat("\n##### start.proc.time() - stop.proc.time():\n");
 print( stop.proc.time - start.proc.time );
-

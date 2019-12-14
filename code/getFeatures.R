@@ -1,38 +1,38 @@
 
-getTextStatistics <- function(
-    DF.input = NULL,
-    col.id   = NULL,
-    col.text = NULL,
-    file_text_statistics = NULL
+getFeatures <- function(
+    input_matrix  = NULL,
+    col_id        = NULL,
+    col_text      = NULL,
+    file_features = NULL
     ) {
 
     cat("\n### ~~~~~~~~~~~~~~~~~~~~ ###");
-    cat("\ngetTextStatistics() starts.\n");
+    cat("\ngetFeatures() starts.\n");
 
     require(text2vec);
     require(stopwords);
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-    if ( is.null(DF.input) ) { return(NULL); }
+    if ( is.null(input_matrix) ) { return(NULL); }
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-    if ( file.exists(file_text_statistics) ) {
+    if ( file.exists(file_features) ) {
 
-        cat(paste0("\n### ",file_text_statistics," already exists; loading this file ...\n"));
+        cat(paste0("\n### ",file_features," already exists; loading this file ...\n"));
 
-        text.statistics <- readRDS(file = file_text_statistics);
+        list.features <- readRDS(file = file_features);
 
         cat(paste0("\n### Finished loading text statistics.\n"));
 
     } else {
 
-        tokens <- DF.input[,col.text] %>%
+        tokens <- input_matrix[,col_text] %>%
             tolower() %>%
             word_tokenizer();
 
         tokens_iterator <- itoken(
             iterable    = tokens,
-            ids         = DF.input[,col.id],
+            ids         = input_matrix[,col_id],
             progressbar = FALSE
             );
 
@@ -70,7 +70,7 @@ getTextStatistics <- function(
             );
 
         ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-        text.statistics <- list(
+        list.features <- list(
             token_iterator          = tokens_iterator,
             vocabulary              = tokens_vocabulary,
             document_term_matrix    = document_term_matrix,
@@ -78,8 +78,8 @@ getTextStatistics <- function(
             term_cooccurence_matrix = term_cooccurence_matrix
             );
 
-        if (!is.null(file_text_statistics)) {
-            saveRDS(object = text.statistics, file = file_text_statistics);
+        if (!is.null(file_features)) {
+            saveRDS(object = list.features, file = file_features);
             }
 
         rm(tokens_iterator,tokens_vocabulary,document_term_matrix,tfidf_matrix,term_cooccurence_matrix);
@@ -87,8 +87,8 @@ getTextStatistics <- function(
         }
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-    cat("\ngetTextStatistics() quits.");
+    cat("\ngetFeatures() quits.");
     cat("\n### ~~~~~~~~~~~~~~~~~~~~ ###\n");
-    return( text.statistics );
+    return( list.features );
 
     }
