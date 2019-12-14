@@ -29,7 +29,7 @@ Execute the following shell script (in order to run the full pipeline):
 .\runall.sh
 ```
 This will trigger the creation of the output folder
-`<LOCAL CLONED REPOSITORY>/600-temp/008-LDA/output/`
+`<LOCAL CLONED REPOSITORY>/output/`
 if it does not already exist.
 See below for information about the contents of the output folder.
 
@@ -50,7 +50,7 @@ the putative topics.
 Input files
 -----------
 The input files are located in
-`<LOCAL CLONED REPOSITORY>/500-data/input/arXiv/`.
+`<LOCAL CLONED REPOSITORY>/data/input/arXiv/`.
 Below are descriptions of the input text files for this pipeline.
 
 * __query-arXiv-cat-cs-LG-1000.txt__
