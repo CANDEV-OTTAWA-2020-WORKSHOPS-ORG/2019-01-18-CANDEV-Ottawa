@@ -62,12 +62,12 @@ doLDA <- function(
     print(   str(my.LDA)    );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-	DF.temp <- my.LDA$get_top_words(n = n_top_words, lambda = lambda_top_words);
-	colnames(DF.temp) <- paste0("Topic",seq(1,ncol(DF.temp)));
-	write.csv(
-		file = "lda-top-words.csv",
-		x    = DF.temp
-		);
+    DF.temp <- my.LDA$get_top_words(n = n_top_words, lambda = lambda_top_words);
+    colnames(DF.temp) <- paste0("Topic",seq(1,ncol(DF.temp)));
+    write.csv(
+	    file = "lda-top-words.csv",
+	    x    = DF.temp
+	    );
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     DF.temp <- data.frame(t(my.LDA$topic_word_distribution));
