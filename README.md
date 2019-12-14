@@ -20,13 +20,13 @@ git clone https://github.com/dsd-statcan/2019-01-18-CANDEV-Ottawa.git
 Change directory to the folder of this pipeline in the local cloned repository:
 
 ```
-cd <LOCAL CLONED REPOSITORY>/400-code/008-LDA/
+cd <LOCAL CLONED REPOSITORY>
 ```
 
 Execute the following batch file (in order to run the full pipeline):
 
 ```
-.\runall.bat
+.\runall.sh
 ```
 This will trigger the creation of the output folder
 `<LOCAL CLONED REPOSITORY>/600-temp/008-LDA/output/`
