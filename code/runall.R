@@ -8,12 +8,14 @@ output.directory  <- normalizePath(command.arguments[3]);
 print( data.directory   );
 print( code.directory   );
 print( output.directory );
-cat("\n\n##### Sys.time(): ",format(Sys.time(),"%Y-%m-%d %T %Z"),"\n");
+print( format(Sys.time(),"%Y-%m-%d %T %Z") );
 
 start.proc.time <- proc.time();
+
+# set working directory to output directory
 setwd( output.directory );
 
-cat("\n##################################################\n");
+##################################################
 # source supporting R code
 code.files <- c(
     "doLDA.R",
@@ -70,7 +72,7 @@ results.LDA <- doLDA(
     n_iter       = 100
     );
 
-cat("\n##################################################\n");
+##################################################
 print( warnings() );
 
 print( getOption('repos') );
@@ -79,10 +81,8 @@ print( .libPaths() );
 
 print( sessionInfo() );
 
-# print system time to log
-cat("\n##### Sys.time(): ",format(Sys.time(),"%Y-%m-%d %T %Z"),"\n");
+print( format(Sys.time(),"%Y-%m-%d %T %Z") );
 
-# print elapsed time to log
 stop.proc.time <- proc.time();
-cat("\n##### start.proc.time() - stop.proc.time():\n");
 print( stop.proc.time - start.proc.time );
+
