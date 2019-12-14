@@ -40,7 +40,6 @@ RData.raw            <- "raw.RData";
 RData.textStatistics <- "textStatistics.RData";
 RData.LDA            <- "LDA.RData";
 
-### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 DF.raw <- getTabularData(
 	raw_data_folder = file.path(data.directory,"arXiv"),
 	file_prefix     = "query-arXiv",
@@ -58,7 +57,6 @@ my.text.statistics <- getTextStatistics(
 
 print( str(my.text.statistics) );
 
-### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 results.LDA <- doLDA(
     input_matrix = my.text.statistics[["document_term_matrix"]],
     file_output  = RData.LDA,
