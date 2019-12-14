@@ -148,7 +148,7 @@ Auxiliary output files
 
 Structure of the pipeline
 -------------------------
-1)  The batch program `runall.sh` does the following:
+1)  The shell script `runall.sh` does the following:
 
 * Add folder containing R executables to the environment variable PATH.
 * Set the input folder.
