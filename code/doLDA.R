@@ -90,8 +90,7 @@ doLDA <- function(
         n_check_convergence = 1,       #  default value of 0 causes an error
         progressbar         = FALSE
 		);
-
-	DF.temp <- as.data.frame(DF.temp);
+    DF.temp <- as.data.frame(DF.temp);
     colnames(DF.temp) <- paste0("Topic",seq(1,ncol(DF.temp),1));
 
     DF.temp[,"entropy"] <- apply(
