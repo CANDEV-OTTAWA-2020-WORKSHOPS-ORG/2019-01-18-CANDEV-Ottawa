@@ -6,7 +6,7 @@ getTabularData <- function(
     ) {
 
     cat("\n### ~~~~~~~~~~~~~~~~~~~~ ###");
-    cat("\ngetTabularData() starts.\n");
+    cat("\ngetTabularData() starts.\n\n");
 
     require(xml2);
 
