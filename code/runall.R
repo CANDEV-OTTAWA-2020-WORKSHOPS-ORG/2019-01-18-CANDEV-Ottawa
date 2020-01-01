@@ -67,6 +67,7 @@ print( str(list.features) );
 results.LDA <- doLDA(
     input_matrix = list.features[["document_term_matrix"]],
     file_output  = RData.LDA,
+    DF.raw       = DF.raw,
     n_topics     =  10,
     n_top_words  =  30,
     n_iter       = 100
