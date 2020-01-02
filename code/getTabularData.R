@@ -34,6 +34,7 @@ getTabularData <- function(
                  inputXML = file.path(raw_data_folder,tempXML),
                 outputCSV = tempCSV
                 );
+
             }
 
         DF.raw <- templist[[1]];
