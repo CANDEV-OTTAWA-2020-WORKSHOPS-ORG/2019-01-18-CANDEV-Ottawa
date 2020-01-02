@@ -66,11 +66,12 @@ print( str(list.features) );
 # perform Latent Dirichlet Allocation
 results.LDA <- doLDA(
     input_matrix = list.features[["document_term_matrix"]],
-    file_output  = RData.LDA,
-    DF.raw       = DF.raw,
-    n_topics     =  10,
-    n_top_words  =  30,
-    n_iter       = 100
+    file_output     = RData.LDA,
+    DF.raw          = DF.raw,
+    n_topics        =  10,
+    n_top_words     =  30,
+    n_iter          = 100,
+    heatmap_palette = circlize::colorRamp2(c(-1,0,0.5,1), c("black","white","yellow","red"))
     );
 
 ##################################################

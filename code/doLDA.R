@@ -22,6 +22,8 @@ doLDA <- function(
     require(ggplot2)
     require(gplots);
     require(text2vec);
+    require(ComplexHeatmap);
+    require(circlize);
 
     ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
     if ( is.null(input_matrix) ) { return(NULL); }
@@ -125,7 +127,7 @@ doLDA_saveTopicStatistics <- function(
 
 doLDA_plotCorrHeatmap <- function(
     DF.input              = NULL,
-    heatmap_palette       = NULL,
+    heatmap_palette       = circlize::colorRamp2(c(-1,0,1), c("black","white","orange")),
     CSV.corr              = "lda-correlations.csv",
     PNG.corr              = "lda-correlations-all.png",
     PNG.corr.topic        = "lda-correlations-topic.png",
@@ -144,57 +146,102 @@ doLDA_plotCorrHeatmap <- function(
         );
 
     if (!is.null(heatmap_palette)) {
-        png(filename = PNG.corr, height = 12, width = 12, units = "in", res = 300);
-        heatmap.2(
-            x          = as.matrix(results.cor),
-            dendrogram = "both",
-            trace      = "none",
-            labRow     = NULL,
-            key.xlab   = NULL,
-            key.ylab   = NULL,
-            col        = heatmap_palette
-        );
-        dev.off();
-        }
-
-    if (!is.null(heatmap_palette)) {
-        names.topic <- grep(x = colnames(results.cor), pattern = "Topic", value = TRUE);
-        DF.temp     <- results.cor[names.topic,names.topic];
-        png(filename = PNG.corr.topic, height = 12, width = 12, units = "in", res = 300);
-        heatmap.2(
-            x          = as.matrix(DF.temp),
-            dendrogram = "both",
-            trace      = "none",
-            labRow     = NULL,
-            key.xlab   = NULL,
-            key.ylab   = NULL,
-            col        = heatmap_palette
+        DF.temp <- results.cor;
+        rownames(DF.temp) <- gsub(
+            x           = rownames(DF.temp),
+            pattern     = "domain",
+            replacement = ""
             );
-        dev.off();
-        }
-    
-    
-    if (!is.null(heatmap_palette)) {
-
-        names.domain <- grep(x = colnames(results.cor), pattern = "domain", value = TRUE);
-        names.topic  <- grep(x = colnames(results.cor), pattern = "Topic",  value = TRUE);
-
-        DF.temp      <- results.cor[names.topic,names.domain];
+        rownames(DF.temp) <- gsub(
+            x           = rownames(DF.temp),
+            pattern     = "physics-",
+            replacement = ""
+            );
         colnames(DF.temp) <- gsub(
             x           = colnames(DF.temp),
             pattern     = "domain",
             replacement = ""
             );
+        colnames(DF.temp) <- gsub(
+            x           = colnames(DF.temp),
+            pattern     = "physics-",
+            replacement = ""
+            );
+        png(filename = PNG.corr, height = 5, width = 5.75, units = "in", res = 300);
+        my.Heatmap <- ComplexHeatmap::Heatmap(
+            matrix           = as.matrix(DF.temp),
+            name             = "corr",
+            col              = heatmap_palette,
+            row_names_side   = "left"
+            );
+        ComplexHeatmap::draw(
+            object                  = my.Heatmap,
+            legend_labels_gp        = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_row_names_gp    = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_column_names_gp = grid::gpar(fontsize = 10, fontface = "bold")
+            );
+        dev.off();
+        }
 
-        png(filename = PNG.corr.topic.domain, height = 12, width = 12, units = "in", res = 300);
-        heatmap.2(
-            x          = as.matrix(DF.temp),
-            dendrogram = "row",
-            trace      = "none",
-            labRow     = NULL,
-            key.xlab   = NULL,
-            key.ylab   = NULL,
-            col        = heatmap_palette
+    if (!is.null(heatmap_palette)) {
+        names.topic <- grep(x = colnames(results.cor), pattern = "Topic", value = TRUE);
+        DF.temp <- results.cor[names.topic,names.topic];
+        colnames(DF.temp) <- gsub(
+            x           = colnames(DF.temp),
+            pattern     = "domain",
+            replacement = ""
+            );
+        colnames(DF.temp) <- gsub(
+            x           = colnames(DF.temp),
+            pattern     = "physics-",
+            replacement = ""
+            );
+        png(filename = PNG.corr.topic, height = 4, width = 4.5, units = "in", res = 300);
+        my.Heatmap <- ComplexHeatmap::Heatmap(
+            matrix           = as.matrix(DF.temp),
+            name             = "corr",
+            col              = heatmap_palette,
+            row_names_side   = "left"
+            );
+        ComplexHeatmap::draw(
+            object                  = my.Heatmap,
+            legend_labels_gp        = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_row_names_gp    = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_column_names_gp = grid::gpar(fontsize = 10, fontface = "bold")
+            );
+        dev.off();
+        }
+
+    if (!is.null(heatmap_palette)) {
+
+        names.domain <- grep(x = colnames(results.cor), pattern = "domain", value = TRUE);
+        names.topic  <- grep(x = colnames(results.cor), pattern = "Topic",  value = TRUE);
+
+        DF.temp <- results.cor[names.topic,names.domain];
+        colnames(DF.temp) <- gsub(
+            x           = colnames(DF.temp),
+            pattern     = "domain",
+            replacement = ""
+            );
+        colnames(DF.temp) <- gsub(
+            x           = colnames(DF.temp),
+            pattern     = "physics-",
+            replacement = ""
+            );
+        
+        png(filename = PNG.corr.topic.domain, height = 3, width = 3.75, units = "in", res = 300);
+        my.Heatmap <- ComplexHeatmap::Heatmap(
+            matrix           = as.matrix(DF.temp),
+            name             = "corr",
+            col              = heatmap_palette,
+            row_names_side   = "left",
+            show_column_dend = FALSE
+            );
+        ComplexHeatmap::draw(
+            object                  = my.Heatmap,
+            legend_labels_gp        = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_row_names_gp    = grid::gpar(fontsize = 10, fontface = "bold"),
+            heatmap_column_names_gp = grid::gpar(fontsize = 10, fontface = "bold")
             );
         dev.off();
         }
