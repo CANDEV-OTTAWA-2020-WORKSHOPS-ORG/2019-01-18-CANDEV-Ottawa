@@ -51,6 +51,9 @@ DF.raw <- getTabularData(
 	output_file     = RData.raw
 	);
 
+# remove duplicated records (abstracts)
+DF.raw <- DF.raw[!duplicated(DF.raw[,"id"]),];
+
 print( str(DF.raw) );
 
 # generate features
@@ -87,4 +90,3 @@ print( format(Sys.time(),"%Y-%m-%d %T %Z") );
 
 stop.proc.time <- proc.time();
 print( stop.proc.time - start.proc.time );
-
