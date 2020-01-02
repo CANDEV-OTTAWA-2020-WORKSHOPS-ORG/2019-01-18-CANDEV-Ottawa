@@ -57,32 +57,18 @@ getFeatures <- function(
             vectorizer = my_vectorizer
             );
 
-        tfidf_instance <- TfIdf$new();
-        tfidf_matrix   <- fit_transform(
-            x     = document_term_matrix,
-            model = tfidf_instance
-            );
-
-        term_cooccurence_matrix <- create_tcm(
-            it                = tokens_iterator,
-            vectorizer        = my_vectorizer,
-            skip_grams_window = 5L
-            );
-
         ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
         list.features <- list(
-            token_iterator          = tokens_iterator,
-            vocabulary              = tokens_vocabulary,
-            document_term_matrix    = document_term_matrix,
-            tfidf_matrix            = tfidf_matrix,
-            term_cooccurence_matrix = term_cooccurence_matrix
+            token_iterator       = tokens_iterator,
+            vocabulary           = tokens_vocabulary,
+            document_term_matrix = document_term_matrix
             );
 
         if (!is.null(file_features)) {
             saveRDS(object = list.features, file = file_features);
             }
 
-        rm(tokens_iterator,tokens_vocabulary,document_term_matrix,tfidf_matrix,term_cooccurence_matrix);
+        rm(tokens_iterator,tokens_vocabulary,document_term_matrix);
 
         }
 
