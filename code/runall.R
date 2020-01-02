@@ -38,7 +38,7 @@ require(tidyr);
 require(text2vec);
 
 ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
-set.seed(1234567);
+set.seed(7654321);
 
 RData.raw      <- "raw.RData";
 RData.features <- "features.RData";
