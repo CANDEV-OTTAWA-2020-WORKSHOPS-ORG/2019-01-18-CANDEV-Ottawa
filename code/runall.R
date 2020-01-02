@@ -46,10 +46,10 @@ RData.LDA      <- "LDA.RData";
 
 # read and convert data to tabular format
 DF.raw <- getTabularData(
-	raw_data_folder = file.path(data.directory,"arXiv"),
-	file_prefix     = "query-arXiv",
-	output_file     = RData.raw
-	);
+    raw_data_folder = file.path(data.directory,"arXiv"),
+    file_prefix     = "query-arXiv",
+    output_file     = RData.raw
+    );
 
 # remove duplicated records (abstracts)
 DF.raw <- DF.raw[!duplicated(DF.raw[,"id"]),];
@@ -59,10 +59,10 @@ print( str(DF.raw) );
 # generate features
 list.features <- getFeatures(
     input_matrix  = DF.raw,
-	col_id        = "id",
-	col_text      = "summary",
-	file_features = RData.features
-	);
+    col_id        = "id",
+    col_text      = "summary",
+    file_features = RData.features
+    );
 
 print( str(list.features) );
 
