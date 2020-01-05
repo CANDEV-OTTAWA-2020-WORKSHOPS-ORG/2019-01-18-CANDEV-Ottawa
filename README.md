@@ -11,7 +11,8 @@ In addition, this repository also contains a toy (textual) data set and
 a demo pipeline that applies LDA (a topic modelling technique) to the data set.
 
 The data set consists of 6,000 abstracts of scientific articles downloaded
-from https://arxiv.org (hosted by Cornell University)
+from https://arxiv.org (hosted by Cornell University).
+The data set can be found in the __data/arXiv/__ folder.
 
 How to execute the pipeline
 ---------------------------
