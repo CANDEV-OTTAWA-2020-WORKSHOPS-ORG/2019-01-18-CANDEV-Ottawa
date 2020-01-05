@@ -8,9 +8,7 @@ The __slides__ folder contains the slides presented during the workshop.
 
 In addition, this repository also contains a demo pipeline that applies LDA (a topic modelling technique) to a toy (textual) data set.
 
-* the data set: 6,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
-
-* the topic modelling technique: Latent Dirichlet Allocation (LDA)
+The data set: 6,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
 
 How to execute the pipeline
 ---------------------------
