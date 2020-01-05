@@ -4,7 +4,7 @@ Latent Dirichlet Allocation
 
 This repository contains material for the workshop on Latent Dirichlet Allocation (LDA) during the 2020 CANDEV Data Challenge in Ottawa.
 
-The __slides__ folder contains the slides used during the workshop.
+The __slides__ folder contains the slides presented during the workshop.
 
 This repository also contains a demo pipeline that applies LDA (a topic modelling technique) to a toy (textual) data set.
 
