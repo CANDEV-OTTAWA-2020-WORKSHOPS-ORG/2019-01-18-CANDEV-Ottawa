@@ -2,7 +2,7 @@
 Latent Dirichlet Allocation
 ===========================
 
-This repository contains material for the workshop on Latent Dirichlet Allocation (LDA) during the 2020 CANDEV Challenge in Ottawa.
+This repository contains material for the workshop on Latent Dirichlet Allocation (LDA) during the 2020 CANDEV Data Challenge in Ottawa.
 
 The __slides__ folder contains the slides used during the workshop.
 
