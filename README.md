@@ -2,8 +2,11 @@
 Latent Dirichlet Allocation
 ===========================
 
-This is a pipeline that applies a certain topic modelling technique to a toy
-(textual) data set.
+This repository contains material for the 2020 Ottawa CANDEV Challenge Latent Dirichlet Allocation (LDA) workshop.
+
+The __slides__ folder contains the slides used during the workshop.
+
+This repository also contains a demo pipeline that applies LDA (a topic modelling technique) to a toy (textual) data set.
 
 * the data set: 6,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
 
