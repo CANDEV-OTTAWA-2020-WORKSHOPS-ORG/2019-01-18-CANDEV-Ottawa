@@ -16,7 +16,7 @@ The data set can be found in the __data/arXiv/__ folder.
 
 How to execute the pipeline
 ---------------------------
-Clone this project by running the following at the command line:
+Clone this repository by running the following at the command line:
 
 ```
 git clone https://github.com/dsd-statcan/2019-01-18-CANDEV-Ottawa.git
