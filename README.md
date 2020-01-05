@@ -5,7 +5,7 @@ Latent Dirichlet Allocation
 This is a pipeline that applies a certain topic modelling technique to a toy
 (textual) data set.
 
-* the data set: 7,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
+* the data set: 6,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
 
 * the topic modelling technique: Latent Dirichlet Allocation (LDA)
 
