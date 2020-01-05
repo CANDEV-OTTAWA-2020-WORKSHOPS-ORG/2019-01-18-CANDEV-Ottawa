@@ -81,10 +81,6 @@ Below are descriptions of the input text files for this pipeline.
 
     Similarly, but for __methodology (statistics)__.
 
-* __query-arXiv-cat-stat-ML-1000.txt__
-
-    Similarly, but for __machine learning (statistics)__.
-
 Main Output files
 -----------------
 
@@ -134,7 +130,6 @@ Auxiliary output files
 * __query-arXiv-cat-q-bio-GN-1000.csv__
 * __query-arXiv-cat-quant-ph-1000.csv__
 * __query-arXiv-cat-stat-ME-1000.csv__
-* __query-arXiv-cat-stat-ML-1000.csv__
 
     Similarly, but for the rest of the input XML files.
 
