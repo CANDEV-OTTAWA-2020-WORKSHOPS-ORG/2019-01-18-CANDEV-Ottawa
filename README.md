@@ -6,7 +6,7 @@ This repository contains material for the workshop on Latent Dirichlet Allocatio
 
 The __slides__ folder contains the slides presented during the workshop.
 
-This repository also contains a demo pipeline that applies LDA (a topic modelling technique) to a toy (textual) data set.
+In addition, this repository also contains a demo pipeline that applies LDA (a topic modelling technique) to a toy (textual) data set.
 
 * the data set: 6,000 abstracts of scientific articles downloaded from https://arxiv.org (hosted by Cornell University)
 
