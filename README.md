@@ -37,7 +37,7 @@ If you are using a Linux or macOS computer, execute the following shell script (
 If you are using a Windows computer, execute the following batch script at the Command Prompt instead:
 
 ```
-.\runall.sh
+.\runall.bat
 ```
 
 This will trigger the creation of the output folder
