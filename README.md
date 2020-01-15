@@ -19,7 +19,7 @@ How to execute the pipeline
 Clone this repository by running the following at the command line:
 
 ```
-git clone https://github.com/dsd-statcan/2019-01-18-CANDEV-Ottawa.git
+git clone https://github.com/CANDEV-OTTAWA-2020-WORKSHOPS-ORG/Topic-Modelling-Latent-Dirichlet-Allocation-in-R.git
 ```
 
 Change directory to the folder of this pipeline in the local cloned repository:
@@ -28,11 +28,18 @@ Change directory to the folder of this pipeline in the local cloned repository:
 cd <LOCAL CLONED REPOSITORY>
 ```
 
-Execute the following shell script (in order to run the full pipeline):
+If you are using a Linux or macOS computer, execute the following shell script (in order to run the full pipeline):
 
 ```
 .\runall.sh
 ```
+
+If you are using a Windows computer, execute the following batch script at the Command Line (in order to run the full pipeline):
+
+```
+.\runall.sh
+```
+
 This will trigger the creation of the output folder
 `<LOCAL CLONED REPOSITORY>/output/`
 if it does not already exist.
