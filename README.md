@@ -34,7 +34,7 @@ If you are using a Linux or macOS computer, execute the following shell script (
 .\runall.sh
 ```
 
-If you are using a Windows computer, execute the following batch script at the Command Line (in order to run the full pipeline):
+If you are using a Windows computer, execute the following batch script at the Command Prompt instead:
 
 ```
 .\runall.sh
