@@ -47,7 +47,7 @@ See below for information about the contents of the output folder.
 
 What LDA, and hence this pipeline, does
 ---------------------------------------
-This pipeline performs LDA on the input data, namely the 7000 downloaded
+This pipeline performs LDA on the input data, namely the 6000 downloaded
 scientific abstracts.
 
 The pipeline starts by building a `vocabulary` based on the words that
