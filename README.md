@@ -159,7 +159,7 @@ Structure of the pipeline
 
 * Add folder containing R executables to the environment variable PATH.
 * Set the input folder.
-* Create the output folder `<LOCAL CLONED REPOSITORY>/600-temp/008-LDA/output/`.
+* Create the output folder `<LOCAL CLONED REPOSITORY>/output/`.
 * Make a replica of the pipeline code in the `code` subfolder of the output
   folder (for reproducibility: each time the code is run, a snapshot is made
   of the exact version of the code executed for that run).
