@@ -118,6 +118,15 @@ Main Output files
     probability distirubtion over the vocabulary for Topic 1.
     Similarly for the other columns with headers `Topic*`.
 
+* __lda-topic-top-words.csv__
+
+    A comma-delimited tabular file, where each column with header `Topic*`
+    corresponds to a putative topic.
+    The 30 words in the column with header `Topic1` are the 30 words in the
+    vocabulary having the largest probabilities with respect to the categorical
+    distribution (over the vocabulary) that defines Topic 1.
+    Similarly for the other columns with headers `Topic*`.
+
 Auxiliary output files
 ----------------------
 * __lda-document-entropy.png__
