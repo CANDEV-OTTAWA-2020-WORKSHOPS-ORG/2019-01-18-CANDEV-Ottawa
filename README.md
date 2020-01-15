@@ -113,7 +113,7 @@ Main Output files
 * __lda-topic-word-distributions.csv__
 
     A comma-delimited tabular file, where each row correponds to a word in the
-    vocabulary, and each column column corresponds to a putative topic.
+    vocabulary, and each column corresponds to a putative topic.
     The non-negative numbers under the column with header `Topic1` form the
     probability distirubtion over the vocabulary for Topic 1.
     Similarly for the other columns with headers `Topic*`.
