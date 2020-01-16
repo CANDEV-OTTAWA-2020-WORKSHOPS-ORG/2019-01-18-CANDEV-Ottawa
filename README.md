@@ -7,7 +7,7 @@ Latent Dirichlet Allocation (LDA) during the 2020 CANDEV Data Challenge in Ottaw
 
 The __slides__ folder contains the slides presented during the workshop.
 
-In addition, this repository also contains a toy (textual) data set and
+In addition, this repository contains a toy (textual) data set and
 a demo pipeline that applies LDA (a topic modelling technique) to the data set.
 
 The data set consists of 6,000 abstracts of scientific articles downloaded
