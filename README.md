@@ -129,16 +129,23 @@ Main Output files
 
 Auxiliary output files
 ----------------------
-* __lda-document-entropy.png__
-
-    Density plot of the document-specific values of`two_entropy`.
-    Note that the mode has value of about 8.5.
-
-* __lda-document-topic-distributions-cor.png__
+* __lda-correlations-topic.png__
 
     Correlation heatmap for the columns with headers `Topic1`, ... , `Topic10`
     in the output file __lda-document-topic-distributions.csv__.
     Note that the ten putative topics are largely uncorrelated.
+
+* __lda-correlations-topic-domain.png__
+
+    Correlation heatmap for the columns with headers `Topic1`, ... , `Topic10`
+    in the output file __lda-document-topic-distributions.csv__
+    against the one-hot encoding variables generated from the `domain` column.
+
+* __lda-correlations-all.png__
+
+    Correlation heatmap for the columns with headers `Topic1`, ... , `Topic10`
+    in the output file __lda-document-topic-distributions.csv__
+    as well as the one-hot encoding variables generated from the `domain` column.
 
 * __query-arXiv-cat-cs-LG-1000.csv__
 
