@@ -185,6 +185,6 @@ Structure of the pipeline
 
 * Extract relevant information from the input XML files and save the extracted
   data in tabular (CSV) format.
-* Compute statistics of the extracted tabular data (scientific abstracts),
-  including the document-term matrix.
+* Generate the document-term matrix for the extracted tabular data
+  (scientific abstracts).
 * Perform LDA on the resulting document-term matrix.
