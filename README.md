@@ -14,6 +14,11 @@ The data set consists of 6,000 abstracts of scientific articles downloaded
 from https://arxiv.org (hosted by Cornell University).
 The data set can be found in the __data/arXiv/__ folder.
 
+Software reqirements of the pipeline
+------------------------------------
+*  R v3.6.2
+*  R packages: ggplot2, gplots , text2vec, xml2, stopwords, dplyr, tidyr, ComplexHeatmap
+
 How to execute the pipeline
 ---------------------------
 Clone this repository by running the following at the command line:
