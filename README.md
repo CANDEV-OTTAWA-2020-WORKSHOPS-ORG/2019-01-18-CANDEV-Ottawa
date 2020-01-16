@@ -164,11 +164,11 @@ Auxiliary output files
 
 * __stdout.R.runall__
 
-    Standard output log files of __runall.sh__.
+    Standard output log files of __runall.sh__ or __runall.bat__.
 
 * __stderr.R.runall__
 
-    Standard error log files of __runall.sh__.
+    Standard error log files of __runall.sh__ or __runall.bat__.
 
 Structure of the pipeline
 -------------------------
