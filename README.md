@@ -172,7 +172,7 @@ Auxiliary output files
 
 Structure of the pipeline
 -------------------------
-1)  The shell script `runall.sh` or `runall.bat` does the following:
+1)  The script `runall.sh` or `runall.bat` does the following:
 
 * Create the output folder `<LOCAL CLONED REPOSITORY>/output/`.
 * Make a replica of the pipeline code in the `code` subfolder of the output
