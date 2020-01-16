@@ -42,7 +42,8 @@ If you are using a Windows computer, execute the following batch script at the C
 
 This will trigger the creation of the output folder
 `<LOCAL CLONED REPOSITORY>/output/`
-if it does not already exist.
+if it does not already exist, followed by execution of the pipeline.
+All output and log files will be saved to the output folder.
 See below for information about the contents of the output folder.
 
 What LDA, and hence this pipeline, does
